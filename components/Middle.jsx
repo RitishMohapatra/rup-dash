@@ -6,8 +6,8 @@ import IosShareIcon from '@mui/icons-material/IosShare'
 const Middle = () => {
 	const [users, setUsers] = useState([])
 
-	const fetchData = () => {
-		fetch('https://raw.githubusercontent.com/akshita151199/APIs/main/data')
+	 const fetchData = async () => {
+		await fetch('https://raw.githubusercontent.com/akshita151199/APIs/main/data')
 			.then((response) => {
 				return response.json()
 			})
@@ -121,16 +121,67 @@ const Middle = () => {
 				<p>REFERRAL EARNING</p>
 			</div>
 			<div className=' bg-gray-900 flex justify-around mt-1 ml-5 mr-5 rounded-md'>
-				<div className=' flex '>
-					<div className=' flex flex-col '>
+				<div className=' flex'>
+					<div className=' flex flex-col m-5'>
+							<img className='m-2' src="https://raw.githubusercontent.com/akshita151199/APIs/main/btc.png"alt='' />
+							<img className='m-2' src="https://raw.githubusercontent.com/akshita151199/APIs/main/btc.png"alt='' />
+					</div>
+
+					<div className=' flex flex-col'>
+							<div className='p-3 mt-1' >Bitcoin</div>
+							<div className='p-3 mt-1' >Bitcoin</div>
+					</div>
+				</div>
+
+				<div className=' flex flex-col'>
+						<div className=' m-2'>
+							0.001BNB
+							<p className=' text-xs text-gray-400 cursor-pointer'>
+								Expired
+							</p>
+						</div>
+						<div className=' m-2'>
+							0.001BNB
+							<p className=' text-xs text-gray-400 cursor-pointer'>
+								Expired
+							</p>
+						</div>
+				</div>
+				<div className=' flex flex-col'>
+						<div className=' m-4'>0xFbE..0f58A7D</div>
+						<div className=' m-4'>0xFbE..0f58A7D</div>
+				</div>
+
+				<div className=' flex flex-col'>
+						<div className=' m-2'>
+							0.001BNB
+							<p className=' text-xs text-gray-400 cursor-pointer'>
+								View on BSC Scan ⬀
+							</p>
+						</div>
+						<div className=' m-2'>
+							0.001BNB
+							<p className=' text-xs text-gray-400 cursor-pointer'>
+								View on BSC Scan ⬀
+							</p>
+						</div>
+				</div>
+			</div>
+
+			{/* Code commented below as API was not working at that moment */}
+
+
+			{/* <div className=' bg-gray-900 flex justify-around mt-1 ml-5 mr-5 rounded-md'>
+				<div className=' flex'>
+					<div className=' flex flex-col m-5'>
 						{users['data'].map((user) => (
-							<img className=' m-3' src={user.img} alt='' />
+							<img className='m-2' src={user.img} alt='' />
 						))}
 					</div>
 
 					<div className=' flex flex-col'>
 						{users['data'].map((user) => (
-							<div className=' m-3'>{user.asset}</div>
+							<div className='p-3 mt-1' >{user.asset}</div>
 						))}
 					</div>
 				</div>
@@ -161,7 +212,7 @@ const Middle = () => {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> */}
 		</div>
 	)
 }
