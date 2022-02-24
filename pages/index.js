@@ -7,7 +7,7 @@ import Right from '../components/Right'
 
 export default function Home() {
 	return (
-		<div>
+		<div className=''>
 			<Head>
 				<title>Create Next App</title>
 				<meta
@@ -18,13 +18,13 @@ export default function Home() {
 			</Head>
 
 			{/* Header Part Starts */}
-			<div className='w-full bg-blue-700 text-white text-center p-2'>
+			<div className='w-full  bg-blue-700 text-white text-center p-2'>
 				Lorem Ipsum is simply dummy text of the printing
 			</div>
 			{/* Header Part Ends */}
 
 			{/* Body Part Starts */}
-			<div className='grid grid-cols-10   bg-black text-white h-screen'>
+			<div className='grid grid-cols-10   bg-black text-white md:h-full 2xl:h-screen	'>
 				{/* Left */}
 				<div className=' col-span-2 m-5'>
 					<Left />

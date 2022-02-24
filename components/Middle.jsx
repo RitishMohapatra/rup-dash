@@ -4,21 +4,22 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import IosShareIcon from '@mui/icons-material/IosShare'
 
 const Middle = () => {
-	// const [users, setUsers] = useState([])
+	const [users, setUsers] = useState([])
 
-	// const fetchData = () => {
-	// 	fetch('https://raw.githubusercontent.com/akshita151199/APIs/main/data')
-	// 		.then((response) => {
-	// 			return response.json()
-	// 		})
-	// 		.then((data) => {
-	// 			setUsers(data)
-	// 		})
-	// }
+	const fetchData = () => {
+		fetch('https://raw.githubusercontent.com/akshita151199/APIs/main/data')
+			.then((response) => {
+				return response.json()
+			})
+			.then((data) => {
+				setUsers(data)
+			})
+		// console.log(users['data'])
+	}
 
-	// useEffect(() => {
-	// 	fetchData()
-	// }, [])
+	useEffect(() => {
+		fetchData()
+	}, [])
 	return (
 		<div>
 			{/* Top */}
@@ -35,7 +36,7 @@ const Middle = () => {
 				</div>
 			</div>
 			{/* Middle */}
-			<div className=' m-5 mt-10 space-y-5 '>
+			<div className=' m-5 mt-4 space-y-5 '>
 				<div className=' bg-blue-200 text-black rounded-xl text-sm  p-3 '>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and
@@ -120,47 +121,47 @@ const Middle = () => {
 				<p>REFERRAL EARNING</p>
 			</div>
 			<div className=' bg-gray-900 flex justify-around mt-1 ml-5 mr-5 rounded-md'>
-
-				<div className=' flex'>
-					<img src="https://raw.githubusercontent.com/akshita151199/APIs/main/btc.png" alt="" />
-
-					<div className=' flex flex-row'>
-					<div>
-					<div>Put</div>
-					<div>Avax</div>
-					</div>
-
-					</div>
-					
-				</div>
-				<div> 0.0000 BNB</div>
-				<div>0xFbE..0f58A7D</div>
-				<div>0.000.BNB</div>
-{/* 				    
-				<div className='flex '>
-				<img src="https://raw.githubusercontent.com/akshita151199/APIs/main/btc.png" alt="" />
-				<div className='m-1'>Bitcoin
-				<p>Put</p>
-
-				</div>
-				</div>
-				<p></p>
-				<p></p>
-				<p></p> */}
-			</div>
-
-
-			{/* <div>
-				
-				console.log(users);
-				{users.length > 0 && (
-					<ul>
-						{users.map((user) => (
-							console.log(user)
+				<div className=' flex '>
+					<div className=' flex flex-col '>
+						{users['data'].map((user) => (
+							<img className=' m-3' src={user.img} alt='' />
 						))}
-					</ul>
-				)}
-			</div> */}
+					</div>
+
+					<div className=' flex flex-col'>
+						{users['data'].map((user) => (
+							<div className=' m-3'>{user.asset}</div>
+						))}
+					</div>
+				</div>
+
+				<div className=' flex flex-col'>
+					{users['data'].map((user) => (
+						<div className=' m-2'>
+							{user.amount}BNB
+							<p className=' text-xs text-gray-400 cursor-pointer'>
+								Expired
+							</p>
+						</div>
+					))}
+				</div>
+				<div className=' flex flex-col'>
+					{users['data'].map((user) => (
+						<div className=' m-4'>0xFbE..0f58A7D</div>
+					))}
+				</div>
+
+				<div className=' flex flex-col'>
+					{users['data'].map((user) => (
+						<div className=' m-2'>
+							{user.referral_earnings}BNB
+							<p className=' text-xs text-gray-400 cursor-pointer'>
+								View on BSC Scan ⬀
+							</p>
+						</div>
+					))}
+				</div>
+			</div>
 		</div>
 	)
 }
